@@ -1,6 +1,5 @@
 FROM node:alpine3.20
 
-# 只有这一行变了：把 /tmp 改成 /app 或 /home/node
 WORKDIR /app  
 
 COPY . .
