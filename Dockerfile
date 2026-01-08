@@ -1,14 +1,14 @@
 FROM node:alpine3.20
 
-WORKDIR /tmp
+# 只有这一行变了：把 /tmp 改成 /app 或 /home/node
+WORKDIR /app  
 
 COPY . .
 
 EXPOSE 3000/tcp
 
 RUN apk update && apk upgrade &&\
-    apk add --no-cache openssl curl gcompat iproute2 coreutils &&\
-    apk add --no-cache bash &&\
+    apk add --no-cache openssl curl gcompat iproute2 coreutils bash &&\
     chmod +x index.js &&\
     npm install
 
